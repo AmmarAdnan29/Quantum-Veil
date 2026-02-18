@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Veil | Digital Creation Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #d4d4d4;
+            overflow-x: hidden;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Unique Grain Overlay */
+        .bg-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glass-panel {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle shimmering border top on hover */
+        .glass-panel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .glass-panel:hover::after {
+            opacity: 1;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to bottom, #ffffff, #a3a3a3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #c4b5fd, #818cf8, #c4b5fd);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 8s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .glow-sphere {
+            background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, rgba(139, 92, 246, 0.05) 40%, rgba(0,0,0,0) 70%);
+            animation: pulse-glow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: translate(-50%, 0) scale(1); opacity: 0.4; }
+            100% { transform: translate(-50%, 0) scale(1.1); opacity: 0.6; }
+        }
+
+        .grid-bg {
+            background-size: 60px 60px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at 50% 0%, black 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at 50% 0%, black 30%, transparent 80%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #404040;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: rgba(99, 102, 241, 0.2);
+            color: #e0e7ff;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    
+    <!-- Film Grain Overlay -->
+    <div class="bg-noise"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 border-b border-white/5 bg-black/60 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <div class="relative w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-indigo-500/20 blur-md group-hover:bg-indigo-500/40 transition-colors duration-500"></div>
+                    <iconify-icon icon="solar:atom-linear" class="text-white relative z-10" width="18" stroke-width="1.5"></iconify-icon>
+                </div>
+                <span class="font-display font-medium text-sm tracking-tight text-white/90">Quantum Veil</span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-500">
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#community" class="hover:text-white transition-colors">Community</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://discord.gg/N4U7YG5tZ6" target="_blank" class="group relative px-4 py-2 bg-white text-black text-xs font-medium rounded-full overflow-hidden transition-all hover:bg-neutral-200 shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]">
+                    <span class="relative flex items-center gap-2">
+                        Join Discord 
+                        <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 grid-bg -z-10 pointer-events-none"></div>
+        <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] glow-sphere -z-10 blur-3xl opacity-50"></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm shadow-lg shadow-indigo-500/5">
+                <span class="relative flex h-1.5 w-1.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
+                </span>
+                <span class="text-xs font-medium tracking-wide text-indigo-200/80">Systems Operational</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-medium tracking-tighter text-white mb-6 leading-[1.05] drop-shadow-2xl">
+                Where innovation <br />
+                <span class="text-gradient-primary relative inline-block">meets execution.</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                A digital creation hub focused on immersive experiences, creative production, and next-generation communities. We build with precision and purpose.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#projects" class="w-full sm:w-auto px-8 py-3 bg-white text-black font-medium rounded-lg text-sm transition-transform active:scale-95 hover:bg-neutral-200 flex items-center justify-center gap-2 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]">
+                    View Projects
+                    <iconify-icon icon="solar:layers-minimalistic-linear" width="18"></iconify-icon>
+                </a>
+                <a href="https://discord.gg/N4U7YG5tZ6" target="_blank" class="w-full sm:w-auto px-8 py-3 glass-panel text-white font-medium rounded-lg text-sm hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
+                    Community
+                    <iconify-icon icon="prime:discord" width="18"></iconify-icon>
+                </a>
+            </div>
+        </div>
+
+        <!-- CLI / Status Demo -->
+        <div class="mt-20 max-w-4xl mx-auto px-6 relative">
+            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 rounded-xl blur opacity-30"></div>
+            <div class="glass-panel rounded-xl overflow-hidden relative z-10">
+                <div class="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-black/40">
+                    <div class="flex gap-1.5">
+                        <div class="w-2.5 h-2.5 rounded-full bg-white/10 hover:bg-red-500/50 transition-colors"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-white/10 hover:bg-yellow-500/50 transition-colors"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-white/10 hover:bg-green-500/50 transition-colors"></div>
+                    </div>
+                    <div class="ml-auto text-xs text-neutral-600 font-mono">console — status</div>
+                </div>
+                <div class="p-6 bg-black/80 font-mono text-xs md:text-sm overflow-x-auto">
+                    <div class="flex flex-col gap-2">
+                        <div class="flex gap-2">
+                            <span class="text-emerald-400">➜</span>
+                            <span class="text-indigo-400">~</span>
+                            <span class="text-neutral-300">ping mc.skysmpmc.qzz.io</span>
+                        </div>
+                        <div class="text-neutral-500 pb-2">
+                            Pinging mc.skysmpmc.qzz.io [Java] with 32 bytes of data:<br>
+                            Reply from server: time=12ms TTL=54
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="text-emerald-400">➜</span>
+                            <span class="text-indigo-400">~</span>
+                            <span class="text-neutral-300">check status --all</span>
+                        </div>
+                        <div class="text-neutral-400">
+                            <span class="text-green-400">✓</span> Sky Labs Studio........... [Active]<br>
+                            <span class="text-green-400">✓</span> Sky SMP................... [Active]<br>
+                            <span class="text-yellow-400">⚠</span> LAST Signal............... [In Development]<br>
+                            <span class="text-green-400">✓</span> Boxar AI (Yui)............ [Active]
+                        </div>
+                        <div class="flex gap-2 animate-pulse mt-2">
+                            <span class="text-emerald-400">➜</span>
+                            <span class="text-indigo-400">~</span>
+                            <span class="w-2 h-5 bg-neutral-600 block"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Ecosystem Ticker -->
+    <section class="py-12 border-y border-white/5 bg-white/[0.005]">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-xs font-medium text-neutral-600 uppercase tracking-widest mb-8">Our Ecosystem</p>
+            <div class="flex flex-wrap justify-center gap-12 md:gap-20 opacity-40 grayscale transition-all duration-700 hover:grayscale-0 hover:opacity-100">
+                <div class="text-xl font-display font-semibold tracking-tight text-white">SKY<span class="font-light">LABS</span></div>
+                <div class="text-xl font-display font-semibold tracking-tight text-white">SKY<span class="text-indigo-400">SMP</span></div>
+                <div class="text-xl font-display font-semibold tracking-tight text-white">LAST<span class="font-light">SIGNAL</span></div>
+                <div class="text-xl font-display font-semibold tracking-tight text-white">BOXAR<span class="text-indigo-400">AI</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section id="projects" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16 md:mb-24">
+                <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tight text-white mb-6">Our Projects</h2>
+                <p class="text-neutral-400 text-lg max-w-xl font-light">We build immersive systems and experiences that evolve with community feedback.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Sky Labs Studio -->
+                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between hover:-translate-y-1">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 transition-all duration-300">
+                                <iconify-icon icon="solar:palette-linear" class="text-white group-hover:text-indigo-300" width="24"></iconify-icon>
+                            </div>
+                            <span class="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded-full uppercase tracking-wider">Active</span>
+                        </div>
+                        <h3 class="text-xl font-medium text-white mb-2">Sky Labs Studio</h3>
+                        <p class="text-sm text-neutral-400 leading-relaxed font-light mb-4">A premium creative studio delivering graphic design, branding, and performance-friendly Minecraft schematics. Built for creators and Discord communities.</p>
+                        <a href="https://discord.gg/zgyecnzZEC" class="inline-flex items-center gap-1 text-xs text-white hover:text-indigo-400 transition-colors">
+                            Visit Studio <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sky SMP -->
+                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between hover:-translate-y-1 md:row-span-2">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 transition-all duration-300">
+                                <iconify-icon icon="solar:box-minimalistic-linear" class="text-white group-hover:text-indigo-300" width="24"></iconify-icon>
+                            </div>
+                            <span class="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded-full uppercase tracking-wider">Active</span>
+                        </div>
+                        <h3 class="text-xl font-medium text-white mb-2">Sky SMP</h3>
+                        <p class="text-sm text-neutral-400 leading-relaxed font-light mb-6">A classic land-based Survival Multiplayer experience built for long-term progression. No gimmicks — just real survival.</p>
+                        
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-center gap-2 text-xs text-neutral-300">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon> Vanilla-style survival
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-neutral-300">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon> Player-driven economy
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-neutral-300">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon> Anti-cheat & anti-grief
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-neutral-300">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon> Long-term world
+                            </div>
+                        </div>
+
+                        <div class="bg-black/40 rounded-lg p-3 border border-white/5 space-y-2 font-mono text-[10px] text-neutral-400">
+                            <div class="flex justify-between">
+                                <span>JAVA IP</span>
+                                <span class="text-indigo-300 select-all">mc.skysmpmc.qzz.io</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>BEDROCK</span>
+                                <span class="text-indigo-300 select-all">bedrock.skysmpmc.qzz.io</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>ALT IP</span>
+                                <span class="text-indigo-300 select-all">alt.skysmpmc.qzz.io</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-white/5">
+                        <a href="https://discord.gg/9gKg7e5rYb" class="inline-flex items-center gap-1 text-xs text-white hover:text-indigo-400 transition-colors">
+                            Join Server Discord <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- LAST Signal -->
+                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between hover:-translate-y-1">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 transition-all duration-300">
+                                <iconify-icon icon="solar:gamepad-linear" class="text-white group-hover:text-indigo-300" width="24"></iconify-icon>
+                            </div>
+                            <span class="text-[10px] font-semibold text-yellow-400 bg-yellow-500/10 border border-yellow-500/20 px-2 py-1 rounded-full uppercase tracking-wider">In Dev</span>
+                        </div>
+                        <h3 class="text-xl font-medium text-white mb-2">LAST Signal</h3>
+                        <p class="text-sm text-neutral-400 leading-relaxed font-light mb-4">A Roblox game project focused on immersive gameplay, clean mechanics, and a polished user experience.</p>
+                        <a href="https://discord.gg/qeEgSeMyQR" class="inline-flex items-center gap-1 text-xs text-white hover:text-indigo-400 transition-colors">
+                            Follow Development <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Boxar AI -->
+                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between hover:-translate-y-1">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 transition-all duration-300">
+                                <iconify-icon icon="solar:smart-home-angle-linear" class="text-white group-hover:text-indigo-300" width="24"></iconify-icon>
+                            </div>
+                            <span class="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded-full uppercase tracking-wider">Active</span>
+                        </div>
+                        <h3 class="text-xl font-medium text-white mb-2">Boxar AI</h3>
+                        <p class="text-sm text-neutral-400 leading-relaxed font-light mb-4">An upcoming AI-powered initiative focused on smart systems and Discord automation featuring Bot Yui.</p>
+                        <a href="https://boxar.unaux.com/" class="inline-flex items-center gap-1 text-xs text-white hover:text-indigo-400 transition-colors">
+                            Access Bot <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifesto / Interactive Section -->
+    <section class="py-24 border-t border-white/5 relative overflow-hidden bg-white/[0.01]">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="relative order-2 lg:order-1">
+                <div class="absolute inset-0 bg-indigo-600/10 blur-[80px] -z-10 rounded-full"></div>
+                <!-- Abstract visual representation of systems -->
+                <div class="relative z-10 space-y-4 perspective-[1000px]">
+                    <div class="glass-panel p-4 rounded-xl border-l-2 border-l-purple-500/50 transform translate-x-4 opacity-40 scale-[0.95]">
+                        <div class="flex justify-between items-center text-xs text-neutral-500 font-mono mb-1">
+                            <span>MODULE_LOAD</span>
+                            <span>Community</span>
+                        </div>
+                        <div class="h-1.5 bg-white/5 rounded w-full"></div>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl border-l-2 border-l-indigo-500/50 transform translate-x-2 opacity-70 scale-[0.98]">
+                        <div class="flex justify-between items-center text-xs text-indigo-300 font-mono mb-1">
+                            <span>EXPERIENCE_BUILD</span>
+                            <span>Immersive</span>
+                        </div>
+                        <div class="h-1.5 bg-indigo-500/20 rounded w-full overflow-hidden">
+                            <div class="h-full bg-indigo-500 w-3/4 animate-pulse"></div>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-6 rounded-xl border border-white/10 shadow-2xl bg-[#080808]">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center gap-2">
+                                <iconify-icon icon="solar:stars-minimalistic-linear" class="text-emerald-400" width="20"></iconify-icon>
+                                <span class="text-sm font-medium text-white">Quantum Core</span>
+                            </div>
+                            <span class="text-[10px] font-semibold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded uppercase tracking-wider">Online</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-xs text-neutral-500 border-b border-white/5 pb-2">
+                                <span>Workflow</span>
+                                <span class="text-neutral-300 font-mono">Structured</span>
+                            </div>
+                            <div class="flex justify-between text-xs text-neutral-500">
+                                <span>Feedback Loop</span>
+                                <span class="text-neutral-300 font-mono">Continuous</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-1 lg:order-2">
+                <div class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10">
+                    <iconify-icon icon="solar:infinity-linear" class="text-indigo-300" width="24"></iconify-icon>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tight text-white mb-6">
+                    We don’t just <br>build projects.
+                </h2>
+                <p class="text-neutral-400 text-lg mb-8 leading-relaxed font-light">
+                    We build systems. Experiences. Futures. Quantum Veil is built on the belief that innovation requires execution. Every project is designed with a long-term vision and community at its core.
+                </p>
+                
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 group">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400 mt-1 group-hover:scale-110 transition-transform" width="18"></iconify-icon>
+                        <span class="text-neutral-300 text-sm group-hover:text-white transition-colors">Precision-engineered creative workflows</span>
+                    </li>
+                    <li class="flex items-start gap-3 group">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400 mt-1 group-hover:scale-110 transition-transform" width="18"></iconify-icon>
+                        <span class="text-neutral-300 text-sm group-hover:text-white transition-colors">Fair, balanced, and immersive gameplay</span>
+                    </li>
+                    <li class="flex items-start gap-3 group">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400 mt-1 group-hover:scale-110 transition-transform" width="18"></iconify-icon>
+                        <span class="text-neutral-300 text-sm group-hover:text-white transition-colors">Community-driven development cycles</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-950/30 via-black to-black -z-10"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-6xl font-display font-medium tracking-tighter text-white mb-6">
+                Be part of the future.
+            </h2>
+            <p class="text-neutral-400 text-lg mb-10 max-w-2xl mx-auto font-light">
+                Join our Discord to stay updated on Sky Labs, Sky SMP, and all upcoming initiatives.
+            </p>
+            
+            <div class="flex justify-center">
+                <a href="https://discord.gg/N4U7YG5tZ6" target="_blank" class="px-8 py-3.5 rounded-full bg-white text-black text-sm font-semibold hover:bg-neutral-200 transition-colors shadow-lg shadow-indigo-500/20 flex items-center gap-2">
+                    Join Quantum Veil
+                    <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-black pt-16 pb-8 relative">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-8 mb-16">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4 opacity-80 hover:opacity-100 transition-opacity">
+                        <iconify-icon icon="solar:atom-linear" class="text-white" width="20"></iconify-icon>
+                        <span class="font-display font-medium text-white tracking-tight">Quantum Veil</span>
+                    </div>
+                    <p class="text-sm text-neutral-500 mb-6 max-w-xs font-light">
+                        Where innovation meets execution.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://discord.gg/N4U7YG5tZ6" class="text-neutral-500 hover:text-white transition-colors">
+                            <iconify-icon icon="prime:discord" width="18"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Projects</h4>
+                    <ul class="space-y-2 text-sm text-neutral-500">
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Sky Labs</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Sky SMP</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Last Signal</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Boxar AI</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Links</h4>
+                    <ul class="space-y-2 text-sm text-neutral-500">
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Discord</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Status</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Apply</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-span-2 md:col-span-2">
+                    <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Status</h4>
+                    <div class="space-y-2 text-sm text-neutral-500">
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                            <span>Sky SMP</span>
+                            <span class="text-emerald-400 text-xs">● Online</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>Quantum Veil</span>
+                            <span class="text-emerald-400 text-xs">● Operational</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 gap-4">
+                <p class="text-xs text-neutral-600">© 2024 Quantum Veil. All rights reserved.</p>
+                <div class="flex gap-6 items-center">
+                   <div class="relative w-2 h-2">
+                       <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75 animate-ping"></span>
+                       <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                   </div>
+                   <span class="text-xs text-neutral-400 font-medium">All Systems Operational</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
