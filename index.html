@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" style="scroll-behavior: smooth; background-color: #050505;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantum Veil | Digital Creation Hub</title>
-    <link rel="icon" type="image/png" href="https://i.postimg.cc/RCLwYMk1/QV-logo-new.png">
     <meta property="og:image" content="https://i.postimg.cc/nztQd5T0/Quantum-Veil.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#a855f7">
@@ -12,227 +11,121 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            color: #d4d4d4;
-            overflow-x: hidden;
-        }
-        
-        .font-display {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        /* Unique Grain Overlay */
-        .bg-noise {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 50;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-
-        .glass-panel {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Subtle shimmering border top on hover */
-        .glass-panel::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        .glass-panel:hover::after {
-            opacity: 1;
-        }
-
-        .text-gradient {
-            background: linear-gradient(to bottom, #ffffff, #a3a3a3);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-primary {
-            background: linear-gradient(135deg, #c4b5fd, #818cf8, #c4b5fd);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 8s linear infinite;
-        }
-
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        .glow-sphere {
-            background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, rgba(139, 92, 246, 0.05) 40%, rgba(0,0,0,0) 70%);
-            animation: pulse-glow 8s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulse-glow {
-            0% { transform: translate(-50%, 0) scale(1); opacity: 0.4; }
-            100% { transform: translate(-50%, 0) scale(1.1); opacity: 0.6; }
-        }
-
-        .grid-bg {
-            background-size: 60px 60px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            mask-image: radial-gradient(circle at 50% 0%, black 30%, transparent 80%);
-            -webkit-mask-image: radial-gradient(circle at 50% 0%, black 30%, transparent 80%);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #050505;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #262626;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #404040;
-        }
-
-        /* Selection Color */
-        ::selection {
-            background: rgba(99, 102, 241, 0.2);
-            color: #e0e7ff;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body class="antialiased">
-    
-    <!-- Film Grain Overlay -->
-    <div class="bg-noise"></div>
+<body class="bg-[#050505] text-[#a3a3a3] font-['Inter',sans-serif] font-light antialiased relative selection:bg-indigo-500/20 selection:text-indigo-200 overflow-x-hidden">
+
+    <!-- Global Noise Overlay -->
+    <div class="fixed inset-0 pointer-events-none z-50 mix-blend-overlay opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-40 border-b border-white/5 bg-black/60 backdrop-blur-xl">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-2 group cursor-pointer">
-                <div class="relative w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
-                    <div class="absolute inset-0 bg-indigo-500/20 blur-md group-hover:bg-indigo-500/40 transition-colors duration-500"></div>
-                    <iconify-icon icon="solar:atom-linear" class="text-white relative z-10" width="18" stroke-width="1.5"></iconify-icon>
+    <nav class="fixed top-0 w-full z-40 border-b border-white/[0.04] bg-[#050505]/60 backdrop-blur-xl transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+            <div class="flex items-center gap-2.5 group cursor-pointer" onclick="window.scrollTo(0,0)">
+                <div class="w-6 h-6 rounded bg-gradient-to-b from-white/10 to-white/0 border border-white/10 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-indigo-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <iconify-icon icon="solar:atom-linear" class="text-white relative z-10" width="14" stroke-width="1.5"></iconify-icon>
                 </div>
-                <span class="font-display font-medium text-sm tracking-tight text-white/90">Quantum Veil</span>
+                <span class="font-['Space_Grotesk',sans-serif] font-normal text-sm tracking-tighter text-white">Quantum Veil</span>
             </div>
 
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-500">
-                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#community" class="hover:text-white transition-colors">Community</a>
+            <div class="hidden md:flex items-center gap-8 text-xs font-light text-neutral-500">
+                <a href="#projects" class="nav-link hover:text-neutral-200 transition-colors">Architecture</a>
+                <a href="#engineering" class="nav-link hover:text-neutral-200 transition-colors">Engineering & Design</a>
+                <a href="#ecosystem" class="nav-link hover:text-neutral-200 transition-colors">Ecosystem</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="https://discord.gg/N4U7YG5tZ6" target="_blank" class="group relative px-4 py-2 bg-white text-black text-xs font-medium rounded-full overflow-hidden transition-all hover:bg-neutral-200 shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]">
-                    <span class="relative flex items-center gap-2">
-                        Join Discord 
-                        <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
-                    </span>
+                <a href="https://discord.gg/N4U7YG5tZ6" target="_blank" class="group relative px-4 py-1.5 bg-white text-black text-xs font-normal rounded-full overflow-hidden transition-all hover:bg-neutral-200 flex items-center gap-2">
+                    Connect
+                    <iconify-icon icon="solar:arrow-right-linear" width="12" stroke-width="1.5" class="group-hover:translate-x-0.5 transition-transform"></iconify-icon>
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <main class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 grid-bg -z-10 pointer-events-none"></div>
-        <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] glow-sphere -z-10 blur-3xl opacity-50"></div>
+    <main class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden" id="home">
+        <div class="absolute inset-0 pointer-events-none -z-10" style="background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(circle at 50% 10%, black, transparent 60%); -webkit-mask-image: radial-gradient(circle at 50% 10%, black, transparent 60%);"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[40vh] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
-        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm shadow-lg shadow-indigo-500/5">
-                <span class="relative flex h-1.5 w-1.5">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 flex flex-col items-center">
+            
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.02] border border-white/[0.05] mb-8 backdrop-blur-md cursor-default">
+                <div class="relative flex h-1.5 w-1.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60"></span>
                   <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
-                </span>
-                <span class="text-xs font-medium tracking-wide text-indigo-200/80">Systems Operational</span>
+                </div>
+                <span class="text-xs font-normal tracking-wide text-neutral-400">Full-stack systems & pipelines active</span>
             </div>
             
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-medium tracking-tighter text-white mb-6 leading-[1.05] drop-shadow-2xl">
-                Where innovation <br />
-                <span class="text-gradient-primary relative inline-block">meets execution.</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-['Space_Grotesk',sans-serif] font-light tracking-tighter text-white mb-6 leading-[1.1]">
+                Where engineering <br />
+                <span class="bg-gradient-to-r from-indigo-300 via-purple-300 to-indigo-300 bg-clip-text text-transparent relative inline-block animate-[pulse_8s_ease-in-out_infinite]">
+                    meets aesthetic execution.
+                </span>
             </h1>
             
-            <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-                A digital creation hub focused on immersive experiences, creative production, and next-generation communities. We build with precision and purpose.
+            <p class="text-sm md:text-base text-neutral-500 max-w-xl mx-auto mb-10 leading-relaxed font-light">
+                An advanced digital creation hub focused on scalable software architectures, high-fidelity graphic design, precision engineering, and next-generation systems.
             </p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#projects" class="w-full sm:w-auto px-8 py-3 bg-white text-black font-medium rounded-lg text-sm transition-transform active:scale-95 hover:bg-neutral-200 flex items-center justify-center gap-2 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]">
-                    View Projects
-                    <iconify-icon icon="solar:layers-minimalistic-linear" width="18"></iconify-icon>
-                </a>
-                <a href="https://discord.gg/N4U7YG5tZ6" target="_blank" class="w-full sm:w-auto px-8 py-3 glass-panel text-white font-medium rounded-lg text-sm hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
-                    Community
-                    <iconify-icon icon="prime:discord" width="18"></iconify-icon>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+                <button onclick="document.getElementById('engineering').scrollIntoView()" class="w-full sm:w-auto px-6 py-2.5 bg-white text-black font-normal rounded-full text-xs transition-transform active:scale-95 hover:bg-neutral-200 flex items-center justify-center gap-2">
+                    Initialize Deployment
+                </button>
+                <a href="https://discord.gg/N4U7YG5tZ6" target="_blank" class="w-full sm:w-auto px-6 py-2.5 bg-white/[0.02] border border-white/[0.05] text-white font-normal rounded-full text-xs hover:bg-white/[0.05] transition-colors flex items-center justify-center gap-2 backdrop-blur-sm">
+                    Access Codebase
                 </a>
             </div>
         </div>
 
-        <!-- CLI / Status Demo -->
-        <div class="mt-20 max-w-4xl mx-auto px-6 relative">
-            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 rounded-xl blur opacity-30"></div>
-            <div class="glass-panel rounded-xl overflow-hidden relative z-10">
-                <div class="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-black/40">
+        <!-- Sleek CLI Demo -->
+        <div class="mt-20 max-w-3xl mx-auto px-6 relative group cursor-text">
+            <div class="absolute -inset-1 bg-gradient-to-b from-indigo-500/10 to-transparent rounded-xl blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-1000"></div>
+            <div class="bg-[#0a0a0a] border border-white/[0.08] rounded-xl overflow-hidden relative z-10 shadow-2xl">
+                <div class="flex items-center gap-3 px-4 py-2.5 border-b border-white/[0.04] bg-[#050505]">
                     <div class="flex gap-1.5">
-                        <div class="w-2.5 h-2.5 rounded-full bg-white/10 hover:bg-red-500/50 transition-colors"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-white/10 hover:bg-yellow-500/50 transition-colors"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-white/10 hover:bg-green-500/50 transition-colors"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-500/20 hover:bg-red-500/40 transition-colors cursor-pointer"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20 hover:bg-yellow-500/40 transition-colors cursor-pointer"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-green-500/20 hover:bg-green-500/40 transition-colors cursor-pointer"></div>
                     </div>
-                    <div class="ml-auto text-xs text-neutral-600 font-mono">console — status</div>
+                    <div class="flex-1 text-center">
+                        <span class="text-xs text-neutral-500 font-['Inter',sans-serif] tracking-tight">qv-terminal — bash</span>
+                    </div>
                 </div>
-                <div class="p-6 bg-black/80 font-mono text-xs md:text-sm overflow-x-auto">
-                    <div class="flex flex-col gap-2">
-                        <div class="flex gap-2">
-                            <span class="text-emerald-400">➜</span>
-                            <span class="text-indigo-400">~</span>
-                            <span class="text-neutral-300">ping mc.skysmpmc.qzz.io</span>
+                <div class="p-5 font-['Fira_Code',monospace] text-xs overflow-x-auto text-neutral-400 space-y-3" id="terminal-container">
+                    <div class="flex gap-2 items-center">
+                        <span class="text-indigo-400">~</span>
+                        <span class="text-white/80">cargo build --release --target webassembly</span>
+                    </div>
+                    <div class="text-neutral-500 pl-4 border-l border-white/[0.05] space-y-0.5">
+                        <span class="text-emerald-400/80">Compiling</span> quantum_core v2.4.1<br>
+                        <span class="text-emerald-400/80">Compiling</span> qv_neural_router v1.0.3<br>
+                        <span class="text-emerald-400/80">Finished</span> release [optimized + debuginfo] target(s) in 2.14s
+                    </div>
+                    <div class="flex gap-2 items-center pt-1">
+                        <span class="text-indigo-400">~</span>
+                        <span class="text-white/80">qv-render-engine start --vector-accel --hi-res</span>
+                    </div>
+                    <div class="pl-4 space-y-1 border-l border-white/[0.05]">
+                        <div class="flex justify-between max-w-sm">
+                            <span class="text-neutral-500">Initializing WebGL context...</span>
+                            <span class="text-emerald-400/80">[OK]</span>
                         </div>
-                        <div class="text-neutral-500 pb-2">
-                            Pinging mc.skysmpmc.qzz.io [Java] with 32 bytes of data:<br>
-                            Reply from server: time=12ms TTL=54
+                        <div class="flex justify-between max-w-sm">
+                            <span class="text-neutral-500">Loading bezier_curves.svg</span>
+                            <span class="text-emerald-400/80">[OK]</span>
                         </div>
-                        <div class="flex gap-2">
-                            <span class="text-emerald-400">➜</span>
-                            <span class="text-indigo-400">~</span>
-                            <span class="text-neutral-300">check status --all</span>
+                        <div class="flex justify-between max-w-sm">
+                            <span class="text-neutral-500">Allocating GPU memory for layout</span>
+                            <span class="text-emerald-400/80">[2048MB]</span>
                         </div>
-                        <div class="text-neutral-400">
-                            <span class="text-green-400">✓</span> Sky Labs Studio........... [Active]<br>
-                            <span class="text-green-400">✓</span> Sky SMP................... [Active]<br>
-                            <span class="text-yellow-400">⚠</span> LAST Signal............... [In Development]<br>
-                            <span class="text-green-400">✓</span> Boxar AI (Yui)............ [Active]
-                        </div>
-                        <div class="flex gap-2 animate-pulse mt-2">
-                            <span class="text-emerald-400">➜</span>
-                            <span class="text-indigo-400">~</span>
-                            <span class="w-2 h-5 bg-neutral-600 block"></span>
-                        </div>
+                    </div>
+                    <div class="flex gap-2 items-center pt-2">
+                        <span class="text-indigo-400">~</span>
+                        <span id="term-typing" class="text-white/80"></span>
+                        <span class="w-1.5 h-3 bg-white/60 animate-pulse block"></span>
                     </div>
                 </div>
             </div>
@@ -240,200 +133,384 @@
     </main>
 
     <!-- Ecosystem Ticker -->
-    <section class="py-12 border-y border-white/5 bg-white/[0.005]">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-xs font-medium text-neutral-600 uppercase tracking-widest mb-8">Our Ecosystem</p>
-            <div class="flex flex-wrap justify-center gap-12 md:gap-20 opacity-40 grayscale transition-all duration-700 hover:grayscale-0 hover:opacity-100">
-                <div class="text-xl font-display font-semibold tracking-tight text-white">SKY<span class="font-light">LABS</span></div>
-                <div class="text-xl font-display font-semibold tracking-tight text-white">SKY<span class="text-indigo-400">SMP</span></div>
-                <div class="text-xl font-display font-semibold tracking-tight text-white">LAST<span class="font-light">SIGNAL</span></div>
-                <div class="text-xl font-display font-semibold tracking-tight text-white">BOXAR<span class="text-indigo-400">AI</span></div>
+    <section id="ecosystem" class="py-10 border-y border-white/[0.02] bg-white/[0.002]">
+        <div class="max-w-7xl mx-auto px-6 overflow-hidden">
+            <div class="flex whitespace-nowrap gap-12 md:gap-20 opacity-50 grayscale transition-all duration-700 hover:grayscale-0 hover:opacity-100 animate-[scroll_30s_linear_infinite]" style="animation: scroll 20s linear infinite;">
+                <!-- Duplicated for seamless loop illusion -->
+                <div class="flex gap-12 md:gap-20 min-w-full justify-around">
+                    <div class="text-lg font-['Space_Grotesk',sans-serif] font-normal tracking-tighter text-white cursor-default">SYS<span class="font-light text-neutral-500">ARCH</span></div>
+                    <div class="text-lg font-['Space_Grotesk',sans-serif] font-normal tracking-tighter text-white cursor-default">VEC<span class="text-indigo-400 font-light">TOR</span></div>
+                    <div class="text-lg font-['Space_Grotesk',sans-serif] font-normal tracking-tighter text-white cursor-default">FULL<span class="font-light text-neutral-500">STACK</span></div>
+                    <div class="text-lg font-['Space_Grotesk',sans-serif] font-normal tracking-tighter text-white cursor-default">RENDER<span class="font-light text-neutral-500">ENGINE</span></div>
+                    <div class="text-lg font-['Space_Grotesk',sans-serif] font-normal tracking-tighter text-white cursor-default">UI<span class="text-indigo-400 font-light">UX</span></div>
+                </div>
+                <div class="flex gap-12 md:gap-20 min-w-full justify-around" aria-hidden="true">
+                    <div class="text-lg font-['Space_Grotesk',sans-serif] font-normal tracking-tighter text-white cursor-default">SYS<span class="font-light text-neutral-500">ARCH</span></div>
+                    <div class="text-lg font-['Space_Grotesk',sans-serif] font-normal tracking-tighter text-white cursor-default">VEC<span class="text-indigo-400 font-light">TOR</span></div>
+                    <div class="text-lg font-['Space_Grotesk',sans-serif] font-normal tracking-tighter text-white cursor-default">FULL<span class="font-light text-neutral-500">STACK</span></div>
+                    <div class="text-lg font-['Space_Grotesk',sans-serif] font-normal tracking-tighter text-white cursor-default">RENDER<span class="font-light text-neutral-500">ENGINE</span></div>
+                    <div class="text-lg font-['Space_Grotesk',sans-serif] font-normal tracking-tighter text-white cursor-default">UI<span class="text-indigo-400 font-light">UX</span></div>
+                </div>
+            </div>
+            <style>
+                @keyframes scroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- Engineering & Design Capabilities -->
+    <section id="engineering" class="py-24 relative bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/[0.015] to-transparent border-b border-white/[0.02]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <h2 class="text-2xl md:text-4xl font-['Space_Grotesk',sans-serif] font-light tracking-tight text-white mb-4">Engineering & Aesthetics Protocol</h2>
+                    <p class="text-neutral-500 text-sm max-w-lg font-light">Fusing robust software development paradigms with pixel-perfect graphic design. Our stack is optimized for computational efficiency and stunning visual fidelity.</p>
+                </div>
+            </div>
+
+            <!-- Code vs Design Split Showcase -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-16">
+                
+                <!-- Code Editor Mockup -->
+                <div class="bg-[#080808] border border-white/[0.05] rounded-2xl overflow-hidden shadow-2xl group flex flex-col relative h-[320px]">
+                    <div class="absolute inset-0 bg-indigo-500/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                    <div class="flex items-center gap-3 px-4 py-3 border-b border-white/[0.03] bg-[#050505] relative z-10">
+                        <iconify-icon icon="solar:code-square-linear" class="text-indigo-400/80" width="16" stroke-width="1.5"></iconify-icon>
+                        <span class="text-xs text-neutral-400 font-['Inter',sans-serif] tracking-tight" id="code-filename">router.ts</span>
+                        <div class="ml-auto flex gap-2">
+                            <button class="code-tab text-[10px] font-mono border px-1.5 py-0.5 rounded transition-colors text-indigo-300 border-indigo-500/30 bg-indigo-500/10" data-file="router.ts">TS</button>
+                            <button class="code-tab text-[10px] text-neutral-600 font-mono border border-white/[0.05] bg-transparent px-1.5 py-0.5 rounded transition-colors hover:text-neutral-400" data-file="api.json">API</button>
+                        </div>
+                    </div>
+                    <div class="p-4 flex-1 overflow-hidden relative z-10 font-['Fira_Code',monospace] text-xs leading-relaxed">
+                        <div class="flex" id="code-content-ts">
+                            <div class="w-6 text-neutral-700 text-right pr-3 select-none flex flex-col gap-1">
+                                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                            </div>
+                            <div class="text-neutral-300 flex flex-col gap-1">
+                                <div><span class="text-purple-400">import</span> { Pipeline } <span class="text-purple-400">from</span> <span class="text-emerald-300">'@qv/core'</span>;</div>
+                                <div><span class="text-purple-400">import</span> { VectorEngine } <span class="text-purple-400">from</span> <span class="text-emerald-300">'@qv/graphics'</span>;</div>
+                                <div class="opacity-0 select-none">.</div>
+                                <div><span class="text-indigo-300">const</span> initSystem = <span class="text-purple-400">async</span> () => {</div>
+                                <div class="pl-4"><span class="text-indigo-300">const</span> engine = <span class="text-purple-400">new</span> VectorEngine({ <span class="text-white/60">accel: true</span> });</div>
+                                <div class="pl-4"><span class="text-purple-400">await</span> Pipeline.<span class="text-blue-300">deployNode</span>(engine);</div>
+                                <div class="pl-4"><span class="text-neutral-500">// Syncing UI thread with backend processes</span></div>
+                                <div>};</div>
+                            </div>
+                        </div>
+                        <div class="flex hidden" id="code-content-api">
+                            <div class="w-6 text-neutral-700 text-right pr-3 select-none flex flex-col gap-1">
+                                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                            </div>
+                            <div class="text-neutral-300 flex flex-col gap-1">
+                                <div>{</div>
+                                <div class="pl-4"><span class="text-indigo-300">"status"</span>: <span class="text-emerald-300">"operational"</span>,</div>
+                                <div class="pl-4"><span class="text-indigo-300">"endpoints"</span>: [</div>
+                                <div class="pl-8"><span class="text-emerald-300">"/v1/sync"</span>, <span class="text-emerald-300">"/v1/deploy"</span></div>
+                                <div class="pl-4">]</div>
+                                <div>}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphic Design Mockup -->
+                <div class="bg-[#080808] border border-white/[0.05] rounded-2xl overflow-hidden shadow-2xl group relative h-[320px] flex flex-col">
+                    <div class="flex items-center gap-3 px-4 py-3 border-b border-white/[0.03] bg-[#050505] relative z-20">
+                        <iconify-icon icon="solar:pen-new-square-linear" class="text-indigo-400/80" width="16" stroke-width="1.5"></iconify-icon>
+                        <span class="text-xs text-neutral-400 font-['Inter',sans-serif] tracking-tight">branding_vector.ai</span>
+                        <div class="ml-auto flex gap-2">
+                            <span class="text-[10px] text-neutral-600 font-mono border border-white/[0.05] px-1.5 py-0.5 rounded cursor-default">SVG</span>
+                            <span class="text-[10px] text-neutral-600 font-mono border border-white/[0.05] px-1.5 py-0.5 rounded cursor-default">CMYK</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Design Canvas -->
+                    <div class="flex-1 relative overflow-hidden bg-[#030303] z-10" style="background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 20px 20px;">
+                        <!-- Floating Toolbar -->
+                        <div class="absolute left-4 top-4 bg-[#0a0a0a] border border-white/[0.06] rounded-lg p-2 shadow-xl flex flex-col gap-2 backdrop-blur-md z-30">
+                            <button class="design-tool w-6 h-6 rounded flex items-center justify-center bg-white/10 text-white cursor-pointer transition-colors" title="Select Tool"><iconify-icon icon="solar:cursor-square-linear" width="14" stroke-width="1.5"></iconify-icon></button>
+                            <button class="design-tool w-6 h-6 rounded flex items-center justify-center text-neutral-500 hover:text-white transition-colors cursor-pointer" title="Pen Tool"><iconify-icon icon="solar:pen-linear" width="14" stroke-width="1.5"></iconify-icon></button>
+                            <button class="design-tool w-6 h-6 rounded flex items-center justify-center text-neutral-500 hover:text-white transition-colors cursor-pointer" title="Text Tool"><iconify-icon icon="solar:text-square-linear" width="14" stroke-width="1.5"></iconify-icon></button>
+                            <button class="design-tool w-6 h-6 rounded flex items-center justify-center text-neutral-500 hover:text-white transition-colors cursor-pointer" title="Layers"><iconify-icon icon="solar:layers-linear" width="14" stroke-width="1.5"></iconify-icon></button>
+                        </div>
+
+                        <!-- Vector Graphic Simulation -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 group-hover:scale-105 transition-transform duration-700 pointer-events-none">
+                            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full overflow-visible">
+                                <path d="M 20 80 C 20 50, 80 50, 80 20" stroke="url(#grad)" stroke-width="2" fill="none" stroke-dasharray="4 4" class="animate-[dash_20s_linear_infinite]" />
+                                <path d="M 20 80 C 40 20, 60 80, 80 20" stroke="#818cf8" stroke-width="1.5" fill="none" />
+                                
+                                <!-- Anchor Points -->
+                                <circle cx="20" cy="80" r="2.5" fill="#050505" stroke="#fff" stroke-width="1" />
+                                <circle cx="80" cy="20" r="2.5" fill="#050505" stroke="#fff" stroke-width="1" />
+                                <circle cx="40" cy="20" r="2" fill="#050505" stroke="#4ade80" stroke-width="1" />
+                                <circle cx="60" cy="80" r="2" fill="#050505" stroke="#4ade80" stroke-width="1" />
+                                
+                                <!-- Tangent Lines -->
+                                <line x1="20" y1="80" x2="40" y2="20" stroke="#4ade80" stroke-width="0.5" stroke-dasharray="2 2" />
+                                <line x1="80" y1="20" x2="60" y2="80" stroke="#4ade80" stroke-width="0.5" stroke-dasharray="2 2" />
+
+                                <defs>
+                                    <linearGradient id="grad" x1="0" y1="0" x2="100" y2="100">
+                                        <stop offset="0%" stop-color="#818cf8" />
+                                        <stop offset="100%" stop-color="#c084fc" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Capabilities Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-[#0a0a0a] border border-white/[0.04] p-6 rounded-2xl hover:border-white/[0.1] transition-colors group cursor-default">
+                    <iconify-icon icon="solar:server-square-linear" class="text-white mb-4 group-hover:text-indigo-400 transition-colors" width="20" stroke-width="1.5"></iconify-icon>
+                    <h3 class="text-sm font-normal text-white mb-2">Systems Architecture</h3>
+                    <p class="text-xs text-neutral-500 mb-6 leading-relaxed">Designing scalable backend infrastructure, server clustering, and low-latency data pipelines for persistent experiences.</p>
+                    <div class="flex flex-wrap gap-1.5 mt-auto">
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">RUST</span>
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">NODE</span>
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">DOCKER</span>
+                    </div>
+                </div>
+
+                <div class="bg-[#0a0a0a] border border-white/[0.04] p-6 rounded-2xl hover:border-white/[0.1] transition-colors group cursor-default">
+                    <iconify-icon icon="solar:laptop-minimalistic-linear" class="text-white mb-4 group-hover:text-indigo-400 transition-colors" width="20" stroke-width="1.5"></iconify-icon>
+                    <h3 class="text-sm font-normal text-white mb-2">Software Development</h3>
+                    <p class="text-xs text-neutral-500 mb-6 leading-relaxed">Full-stack application engineering, frontend reactivity, and robust API microservices utilizing modern web frameworks.</p>
+                    <div class="flex flex-wrap gap-1.5 mt-auto">
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">REACT</span>
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">TS</span>
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">NEXT</span>
+                    </div>
+                </div>
+
+                <div class="bg-[#0a0a0a] border border-white/[0.04] p-6 rounded-2xl hover:border-white/[0.1] transition-colors group cursor-default">
+                    <iconify-icon icon="solar:layers-minimalistic-linear" class="text-white mb-4 group-hover:text-indigo-400 transition-colors" width="20" stroke-width="1.5"></iconify-icon>
+                    <h3 class="text-sm font-normal text-white mb-2">Visual & UI/UX Design</h3>
+                    <p class="text-xs text-neutral-500 mb-6 leading-relaxed">High-fidelity interface design, user flow mapping, and comprehensive branding identity mapped to strict vector parameters.</p>
+                    <div class="flex flex-wrap gap-1.5 mt-auto">
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">FIGMA</span>
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">ILST</span>
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">PS</span>
+                    </div>
+                </div>
+
+                <div class="bg-[#0a0a0a] border border-white/[0.04] p-6 rounded-2xl hover:border-white/[0.1] transition-colors group cursor-default">
+                    <iconify-icon icon="solar:video-frame-linear" class="text-white mb-4 group-hover:text-indigo-400 transition-colors" width="20" stroke-width="1.5"></iconify-icon>
+                    <h3 class="text-sm font-normal text-white mb-2">Motion & 3D Render</h3>
+                    <p class="text-xs text-neutral-500 mb-6 leading-relaxed">Dynamic composition, physics-based simulations, and spatial rendering to elevate digital assets beyond static environments.</p>
+                    <div class="flex flex-wrap gap-1.5 mt-auto">
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">AE</span>
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">BLENDER</span>
+                        <span class="text-[9px] font-mono tracking-wider border border-white/[0.05] bg-white/[0.01] px-1.5 py-0.5 rounded text-neutral-400">WEBGL</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Grid -->
-    <section id="projects" class="py-24 md:py-32 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16 md:mb-24">
-                <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tight text-white mb-6">Our Projects</h2>
-                <p class="text-neutral-400 text-lg max-w-xl font-light">We build immersive systems and experiences that evolve with community feedback.</p>
+    <!-- Projects Bento Grid -->
+    <section id="projects" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="text-2xl md:text-4xl font-['Space_Grotesk',sans-serif] font-light tracking-tight text-white mb-4">Architected Systems</h2>
+                <p class="text-neutral-500 text-sm max-w-lg font-light">Engineered frameworks, from survival multiplayer nodes to machine-learning pipelines.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Sky Labs Studio -->
-                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between hover:-translate-y-1">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                
+                <!-- Sky SMP (Spans 2 columns) -->
+                <div class="md:col-span-2 bg-[#0a0a0a] border border-white/[0.04] p-8 rounded-2xl group hover:border-white/[0.1] transition-all duration-500 relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-indigo-500/10 transition-colors duration-700 pointer-events-none"></div>
+                    
                     <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 transition-all duration-300">
-                                <iconify-icon icon="solar:palette-linear" class="text-white group-hover:text-indigo-300" width="24"></iconify-icon>
+                        <div class="flex justify-between items-start mb-8">
+                            <div class="w-10 h-10 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-white group-hover:text-indigo-300 transition-colors">
+                                <iconify-icon icon="solar:box-minimalistic-linear" width="20" stroke-width="1.5"></iconify-icon>
                             </div>
-                            <span class="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded-full uppercase tracking-wider">Active</span>
+                            <div class="flex items-center gap-1.5 bg-emerald-500/[0.05] border border-emerald-500/10 px-2.5 py-1 rounded text-xs text-emerald-400 font-normal">
+                                <div class="w-1 h-1 rounded-full bg-emerald-400"></div>
+                                Active Node
+                            </div>
                         </div>
-                        <h3 class="text-xl font-medium text-white mb-2">Sky Labs Studio</h3>
-                        <p class="text-sm text-neutral-400 leading-relaxed font-light mb-4">A premium creative studio delivering graphic design, branding, and performance-friendly Minecraft schematics. Built for creators and Discord communities.</p>
-                        <a href="https://discord.gg/zgyecnzZEC" class="inline-flex items-center gap-1 text-xs text-white hover:text-indigo-400 transition-colors">
-                            Visit Studio <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                        <h3 class="text-xl font-normal text-white mb-2 tracking-tight">Sky SMP</h3>
+                        <p class="text-sm text-neutral-500 leading-relaxed font-light mb-8 max-w-md">A foundational land-based Survival Multiplayer framework built for sustained progression and organic economy generation. Engineered with custom server-side software to ensure zero artificial inflation.</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                            <div class="flex items-center gap-2 text-xs text-neutral-400 cursor-default hover:text-white transition-colors">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400/70" width="16" stroke-width="1.5"></iconify-icon> Vanilla-core protocols
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-neutral-400 cursor-default hover:text-white transition-colors">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400/70" width="16" stroke-width="1.5"></iconify-icon> Dynamic player economy
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-neutral-400 cursor-default hover:text-white transition-colors">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400/70" width="16" stroke-width="1.5"></iconify-icon> Algorithmic anti-cheat
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-neutral-400 cursor-default hover:text-white transition-colors">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400/70" width="16" stroke-width="1.5"></iconify-icon> Persistent world state
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#050505] rounded-lg p-4 border border-white/[0.03] flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                        <div class="space-y-1 font-mono text-xs">
+                            <div class="flex items-center gap-4">
+                                <span class="text-neutral-600 w-12 cursor-default">JAVA</span>
+                                <span class="text-neutral-300 select-all" onclick="navigator.clipboard.writeText('mc.skysmpmc.qzz.io'); this.innerText='Copied!'; setTimeout(()=>{this.innerText='mc.skysmpmc.qzz.io'}, 1500)">mc.skysmpmc.qzz.io</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="text-neutral-600 w-12 cursor-default">BEDROCK</span>
+                                <span class="text-neutral-300 select-all" onclick="navigator.clipboard.writeText('bedrock.skysmpmc.qzz.io'); this.innerText='Copied!'; setTimeout(()=>{this.innerText='bedrock.skysmpmc.qzz.io'}, 1500)">bedrock.skysmpmc.qzz.io</span>
+                            </div>
+                        </div>
+                        <a href="https://discord.gg/9gKg7e5rYb" class="inline-flex items-center gap-1.5 text-xs text-white hover:text-indigo-300 transition-colors whitespace-nowrap">
+                            Initialize Connection <iconify-icon icon="solar:arrow-right-linear" width="14" stroke-width="1.5"></iconify-icon>
                         </a>
                     </div>
                 </div>
 
-                <!-- Sky SMP -->
-                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between hover:-translate-y-1 md:row-span-2">
+                <!-- Sky Labs Studio -->
+                <div class="bg-[#0a0a0a] border border-white/[0.04] p-8 rounded-2xl group hover:border-white/[0.1] transition-all duration-500 relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 transition-all duration-300">
-                                <iconify-icon icon="solar:box-minimalistic-linear" class="text-white group-hover:text-indigo-300" width="24"></iconify-icon>
-                            </div>
-                            <span class="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded-full uppercase tracking-wider">Active</span>
-                        </div>
-                        <h3 class="text-xl font-medium text-white mb-2">Sky SMP</h3>
-                        <p class="text-sm text-neutral-400 leading-relaxed font-light mb-6">A classic land-based Survival Multiplayer experience built for long-term progression. No gimmicks — just real survival.</p>
-                        
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center gap-2 text-xs text-neutral-300">
-                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon> Vanilla-style survival
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-neutral-300">
-                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon> Player-driven economy
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-neutral-300">
-                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon> Anti-cheat & anti-grief
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-neutral-300">
-                                <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400"></iconify-icon> Long-term world
+                        <div class="flex justify-between items-start mb-8">
+                            <div class="w-10 h-10 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-white group-hover:text-indigo-300 transition-colors">
+                                <iconify-icon icon="solar:palette-linear" width="20" stroke-width="1.5"></iconify-icon>
                             </div>
                         </div>
-
-                        <div class="bg-black/40 rounded-lg p-3 border border-white/5 space-y-2 font-mono text-[10px] text-neutral-400">
-                            <div class="flex justify-between">
-                                <span>JAVA IP</span>
-                                <span class="text-indigo-300 select-all">mc.skysmpmc.qzz.io</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>BEDROCK</span>
-                                <span class="text-indigo-300 select-all">bedrock.skysmpmc.qzz.io</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>ALT IP</span>
-                                <span class="text-indigo-300 select-all">alt.skysmpmc.qzz.io</span>
-                            </div>
-                        </div>
+                        <h3 class="text-xl font-normal text-white mb-2 tracking-tight">Sky Labs Studio</h3>
+                        <p class="text-sm text-neutral-500 leading-relaxed font-light mb-6">A high-fidelity creative studio delivering scalable branding, graphic schematics, and optimized UI/UX interfaces for digital creators.</p>
                     </div>
-                    <div class="mt-6 pt-6 border-t border-white/5">
-                        <a href="https://discord.gg/9gKg7e5rYb" class="inline-flex items-center gap-1 text-xs text-white hover:text-indigo-400 transition-colors">
-                            Join Server Discord <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
-                        </a>
-                    </div>
+                    <a href="https://discord.gg/zgyecnzZEC" class="inline-flex items-center gap-1.5 text-xs text-white hover:text-indigo-300 transition-colors mt-auto">
+                        Access Studio <iconify-icon icon="solar:arrow-right-linear" width="14" stroke-width="1.5"></iconify-icon>
+                    </a>
                 </div>
 
                 <!-- LAST Signal -->
-                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between hover:-translate-y-1">
+                <div class="bg-[#0a0a0a] border border-white/[0.04] p-8 rounded-2xl group hover:border-white/[0.1] transition-all duration-500 relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 transition-all duration-300">
-                                <iconify-icon icon="solar:gamepad-linear" class="text-white group-hover:text-indigo-300" width="24"></iconify-icon>
+                        <div class="flex justify-between items-start mb-8">
+                            <div class="w-10 h-10 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-white group-hover:text-indigo-300 transition-colors">
+                                <iconify-icon icon="solar:gamepad-linear" width="20" stroke-width="1.5"></iconify-icon>
                             </div>
-                            <span class="text-[10px] font-semibold text-yellow-400 bg-yellow-500/10 border border-yellow-500/20 px-2 py-1 rounded-full uppercase tracking-wider">In Dev</span>
+                            <div class="flex items-center gap-1.5 bg-yellow-500/[0.05] border border-yellow-500/10 px-2.5 py-1 rounded text-xs text-yellow-500/80 font-normal transition-colors" id="compile-badge">
+                                <div class="w-1 h-1 rounded-full bg-yellow-500/80" id="compile-dot"></div>
+                                <span id="compile-text">Compiling</span>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-medium text-white mb-2">LAST Signal</h3>
-                        <p class="text-sm text-neutral-400 leading-relaxed font-light mb-4">A Roblox game project focused on immersive gameplay, clean mechanics, and a polished user experience.</p>
-                        <a href="https://discord.gg/qeEgSeMyQR" class="inline-flex items-center gap-1 text-xs text-white hover:text-indigo-400 transition-colors">
-                            Follow Development <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
-                        </a>
+                        <h3 class="text-xl font-normal text-white mb-2 tracking-tight">LAST Signal</h3>
+                        <p class="text-sm text-neutral-500 leading-relaxed font-light mb-6">An interactive environment focusing on refined user mechanics, latency-free simulation, and C++ driven physics engines.</p>
                     </div>
+                    <a href="https://discord.gg/qeEgSeMyQR" class="inline-flex items-center gap-1.5 text-xs text-white hover:text-indigo-300 transition-colors mt-auto">
+                        Monitor Build <iconify-icon icon="solar:arrow-right-linear" width="14" stroke-width="1.5"></iconify-icon>
+                    </a>
                 </div>
 
                 <!-- Boxar AI -->
-                <div class="glass-panel p-8 rounded-2xl group hover:bg-white/[0.04] transition-all duration-500 flex flex-col justify-between hover:-translate-y-1">
-                    <div>
-                        <div class="flex justify-between items-start mb-6">
-                            <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 transition-all duration-300">
-                                <iconify-icon icon="solar:smart-home-angle-linear" class="text-white group-hover:text-indigo-300" width="24"></iconify-icon>
+                <div class="md:col-span-2 bg-[#0a0a0a] border border-white/[0.04] p-8 rounded-2xl group hover:border-white/[0.1] transition-all duration-500 relative overflow-hidden flex flex-col justify-between sm:flex-row items-start sm:items-center gap-8">
+                    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    
+                    <div class="flex-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-white group-hover:text-indigo-300 transition-colors">
+                                <iconify-icon icon="solar:cpu-linear" width="20" stroke-width="1.5"></iconify-icon>
                             </div>
-                            <span class="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded-full uppercase tracking-wider">Active</span>
+                            <h3 class="text-xl font-normal text-white tracking-tight">Boxar AI <span class="text-neutral-500 font-light text-sm ml-2">(Bot Yui)</span></h3>
                         </div>
-                        <h3 class="text-xl font-medium text-white mb-2">Boxar AI</h3>
-                        <p class="text-sm text-neutral-400 leading-relaxed font-light mb-4">An upcoming AI-powered initiative focused on smart systems and Discord automation featuring Bot Yui.</p>
-                        <a href="https://boxar.unaux.com/" class="inline-flex items-center gap-1 text-xs text-white hover:text-indigo-400 transition-colors">
-                            Access Bot <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
-                        </a>
+                        <p class="text-sm text-neutral-500 leading-relaxed font-light">An automated machine-learning Node.js pipeline deployed for community management, dynamic text synthesis, and automated data routing within our network.</p>
                     </div>
+
+                    <a href="https://boxar.unaux.com/" class="shrink-0 px-5 py-2.5 bg-white/[0.03] border border-white/[0.05] text-white font-normal rounded-full text-xs hover:bg-white/[0.08] transition-colors flex items-center justify-center gap-2">
+                        Interface with API
+                        <iconify-icon icon="solar:arrow-right-linear" width="14" stroke-width="1.5"></iconify-icon>
+                    </a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Manifesto / Interactive Section -->
-    <section class="py-24 border-t border-white/5 relative overflow-hidden bg-white/[0.01]">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <!-- Manifesto & Custom UI Elements -->
+    <section class="py-24 border-t border-white/[0.02] relative overflow-hidden bg-gradient-to-b from-white/[0.005] to-transparent">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            <div class="relative order-2 lg:order-1">
-                <div class="absolute inset-0 bg-indigo-600/10 blur-[80px] -z-10 rounded-full"></div>
-                <!-- Abstract visual representation of systems -->
-                <div class="relative z-10 space-y-4 perspective-[1000px]">
-                    <div class="glass-panel p-4 rounded-xl border-l-2 border-l-purple-500/50 transform translate-x-4 opacity-40 scale-[0.95]">
-                        <div class="flex justify-between items-center text-xs text-neutral-500 font-mono mb-1">
-                            <span>MODULE_LOAD</span>
-                            <span>Community</span>
+            <div class="order-2 lg:order-1 relative">
+                <div class="absolute inset-0 bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none"></div>
+                
+                <div class="relative z-10 bg-[#080808] border border-white/[0.06] rounded-2xl p-6 shadow-2xl w-full max-w-sm mx-auto lg:mx-0">
+                    <div class="flex justify-between items-center mb-6 pb-4 border-b border-white/[0.04]">
+                        <div class="flex items-center gap-2">
+                            <iconify-icon icon="solar:database-linear" class="text-indigo-300" width="16" stroke-width="1.5"></iconify-icon>
+                            <span class="text-xs font-normal text-white tracking-tight">Core Processing</span>
                         </div>
-                        <div class="h-1.5 bg-white/5 rounded w-full"></div>
+                        <span class="text-[10px] text-neutral-500 font-mono">v2.4.0</span>
                     </div>
-                    <div class="glass-panel p-4 rounded-xl border-l-2 border-l-indigo-500/50 transform translate-x-2 opacity-70 scale-[0.98]">
-                        <div class="flex justify-between items-center text-xs text-indigo-300 font-mono mb-1">
-                            <span>EXPERIENCE_BUILD</span>
-                            <span>Immersive</span>
-                        </div>
-                        <div class="h-1.5 bg-indigo-500/20 rounded w-full overflow-hidden">
-                            <div class="h-full bg-indigo-500 w-3/4 animate-pulse"></div>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-6 rounded-xl border border-white/10 shadow-2xl bg-[#080808]">
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="flex items-center gap-2">
-                                <iconify-icon icon="solar:stars-minimalistic-linear" class="text-emerald-400" width="20"></iconify-icon>
-                                <span class="text-sm font-medium text-white">Quantum Core</span>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between group cursor-pointer" id="toggle-sync">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-neutral-300">Neural Sync</span>
+                                <span class="text-[10px] text-neutral-600 transition-colors" id="toggle-text">Continuous background linkage</span>
                             </div>
-                            <span class="text-[10px] font-semibold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded uppercase tracking-wider">Online</span>
+                            <div class="w-8 h-4 bg-indigo-500/10 rounded-full relative border border-indigo-500/20 transition-colors duration-300" id="toggle-bg">
+                                <div class="absolute left-0.5 top-0.5 w-3 h-3 bg-indigo-400 rounded-full shadow-[0_0_8px_rgba(129,140,248,0.5)] transition-all duration-300 translate-x-[16px]" id="toggle-knob"></div>
+                            </div>
                         </div>
-                        <div class="space-y-3">
-                            <div class="flex justify-between text-xs text-neutral-500 border-b border-white/5 pb-2">
-                                <span>Workflow</span>
-                                <span class="text-neutral-300 font-mono">Structured</span>
+
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-end">
+                                <span class="text-xs text-neutral-300">Bandwidth Allocation</span>
+                                <span class="text-[10px] text-neutral-500 font-mono transition-all" id="bw-text">84%</span>
                             </div>
-                            <div class="flex justify-between text-xs text-neutral-500">
-                                <span>Feedback Loop</span>
-                                <span class="text-neutral-300 font-mono">Continuous</span>
+                            <div class="h-1.5 w-full bg-white/[0.04] rounded-full overflow-hidden">
+                                <div class="h-full w-[84%] bg-gradient-to-r from-indigo-500/50 to-indigo-400 rounded-full relative transition-all duration-1000 ease-in-out" id="bw-bar">
+                                    <div class="absolute right-0 top-0 bottom-0 w-4 bg-white/50 blur-[2px]"></div>
+                                </div>
                             </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 pt-2">
+                            <div class="w-4 h-4 rounded border border-indigo-500/30 bg-indigo-500/10 flex items-center justify-center transition-colors duration-300" id="constraint-box">
+                                <iconify-icon icon="solar:check-read-linear" class="text-indigo-400 transition-opacity duration-300" width="12" stroke-width="2" id="constraint-check"></iconify-icon>
+                            </div>
+                            <span class="text-xs text-neutral-400 cursor-pointer hover:text-white transition-colors select-none" onclick="document.getElementById('toggle-sync').click()">Enforce vector precision constraints</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="order-1 lg:order-2">
-                <div class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10">
-                    <iconify-icon icon="solar:infinity-linear" class="text-indigo-300" width="24"></iconify-icon>
+                <div class="mb-6 w-10 h-10 rounded border border-white/[0.05] flex items-center justify-center bg-white/[0.01]">
+                    <iconify-icon icon="solar:infinity-linear" class="text-neutral-400" width="20" stroke-width="1.5"></iconify-icon>
                 </div>
-                <h2 class="text-3xl md:text-5xl font-display font-medium tracking-tight text-white mb-6">
-                    We don’t just <br>build projects.
+                <h2 class="text-2xl md:text-4xl font-['Space_Grotesk',sans-serif] font-light tracking-tight text-white mb-5">
+                    Beyond conventional development.
                 </h2>
-                <p class="text-neutral-400 text-lg mb-8 leading-relaxed font-light">
-                    We build systems. Experiences. Futures. Quantum Veil is built on the belief that innovation requires execution. Every project is designed with a long-term vision and community at its core.
+                <p class="text-neutral-500 text-sm mb-8 leading-relaxed font-light">
+                    Quantum Veil operates on the principle that true innovation demands flawless execution. We architect highly stable codebases and pristine graphical environments with an unwavering focus on system integrity and user experience.
                 </p>
                 
-                <ul class="space-y-4">
-                    <li class="flex items-start gap-3 group">
-                        <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400 mt-1 group-hover:scale-110 transition-transform" width="18"></iconify-icon>
-                        <span class="text-neutral-300 text-sm group-hover:text-white transition-colors">Precision-engineered creative workflows</span>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3 group cursor-default">
+                        <iconify-icon icon="solar:round-alt-arrow-right-linear" class="text-indigo-400/50 mt-0.5 group-hover:text-indigo-300 transition-colors" width="16" stroke-width="1.5"></iconify-icon>
+                        <span class="text-neutral-400 text-sm font-light group-hover:text-white transition-colors">Precision-engineered software workflows</span>
                     </li>
-                    <li class="flex items-start gap-3 group">
-                        <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400 mt-1 group-hover:scale-110 transition-transform" width="18"></iconify-icon>
-                        <span class="text-neutral-300 text-sm group-hover:text-white transition-colors">Fair, balanced, and immersive gameplay</span>
+                    <li class="flex items-start gap-3 group cursor-default">
+                        <iconify-icon icon="solar:round-alt-arrow-right-linear" class="text-indigo-400/50 mt-0.5 group-hover:text-indigo-300 transition-colors" width="16" stroke-width="1.5"></iconify-icon>
+                        <span class="text-neutral-400 text-sm font-light group-hover:text-white transition-colors">High-fidelity, mathematically exact vector layouts</span>
                     </li>
-                    <li class="flex items-start gap-3 group">
-                        <iconify-icon icon="solar:check-circle-linear" class="text-indigo-400 mt-1 group-hover:scale-110 transition-transform" width="18"></iconify-icon>
-                        <span class="text-neutral-300 text-sm group-hover:text-white transition-colors">Community-driven development cycles</span>
+                    <li class="flex items-start gap-3 group cursor-default">
+                        <iconify-icon icon="solar:round-alt-arrow-right-linear" class="text-indigo-400/50 mt-0.5 group-hover:text-indigo-300 transition-colors" width="16" stroke-width="1.5"></iconify-icon>
+                        <span class="text-neutral-400 text-sm font-light group-hover:text-white transition-colors">Continuous telemetry and automated CI/CD deployment</span>
                     </li>
                 </ul>
             </div>
@@ -442,90 +519,253 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-950/30 via-black to-black -z-10"></div>
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-6xl font-display font-medium tracking-tighter text-white mb-6">
-                Be part of the future.
+    <section class="py-32 relative overflow-hidden border-t border-white/[0.02]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/10 via-[#050505] to-[#050505] -z-10"></div>
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-5xl font-['Space_Grotesk',sans-serif] font-light tracking-tighter text-white mb-5">
+                Integrate with the codebase.
             </h2>
-            <p class="text-neutral-400 text-lg mb-10 max-w-2xl mx-auto font-light">
-                Join our Discord to stay updated on Sky Labs, Sky SMP, and all upcoming initiatives.
+            <p class="text-neutral-500 text-sm mb-10 font-light">
+                Establish a connection to our core engineering communication hub to monitor system development, design updates, and incoming data streams.
             </p>
             
-            <div class="flex justify-center">
-                <a href="https://discord.gg/N4U7YG5tZ6" target="_blank" class="px-8 py-3.5 rounded-full bg-white text-black text-sm font-semibold hover:bg-neutral-200 transition-colors shadow-lg shadow-indigo-500/20 flex items-center gap-2">
-                    Join Quantum Veil
-                    <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
-                </a>
-            </div>
+            <a href="https://discord.gg/N4U7YG5tZ6" target="_blank" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white text-black text-xs font-normal hover:bg-neutral-200 transition-transform active:scale-95">
+                Join Developer Network
+                <iconify-icon icon="solar:arrow-right-linear" width="14" stroke-width="1.5"></iconify-icon>
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-white/5 bg-black pt-16 pb-8 relative">
-        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+    <footer class="border-t border-white/[0.04] bg-[#020202] pt-16 pb-8 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-6 gap-8 mb-16">
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-10 mb-16">
                 <div class="col-span-2">
-                    <div class="flex items-center gap-2 mb-4 opacity-80 hover:opacity-100 transition-opacity">
-                        <iconify-icon icon="solar:atom-linear" class="text-white" width="20"></iconify-icon>
-                        <span class="font-display font-medium text-white tracking-tight">Quantum Veil</span>
+                    <div class="flex items-center gap-2 mb-4 opacity-80 hover:opacity-100 transition-opacity cursor-pointer" onclick="window.scrollTo(0,0)">
+                        <iconify-icon icon="solar:atom-linear" class="text-white" width="16" stroke-width="1.5"></iconify-icon>
+                        <span class="font-['Space_Grotesk',sans-serif] font-normal text-white tracking-tighter text-sm">Quantum Veil</span>
                     </div>
-                    <p class="text-sm text-neutral-500 mb-6 max-w-xs font-light">
-                        Where innovation meets execution.
+                    <p class="text-xs text-neutral-600 mb-6 max-w-xs font-light">
+                        Where software engineering meets high-fidelity design execution. Architecting digital infrastructure.
                     </p>
-                    <div class="flex gap-4">
-                        <a href="https://discord.gg/N4U7YG5tZ6" class="text-neutral-500 hover:text-white transition-colors">
-                            <iconify-icon icon="prime:discord" width="18"></iconify-icon>
-                        </a>
-                    </div>
                 </div>
                 
                 <div>
-                    <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Projects</h4>
-                    <ul class="space-y-2 text-sm text-neutral-500">
-                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Sky Labs</a></li>
-                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Sky SMP</a></li>
-                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Last Signal</a></li>
-                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Boxar AI</a></li>
+                    <h4 class="text-[10px] font-normal text-neutral-400 uppercase tracking-widest mb-4">Architecture</h4>
+                    <ul class="space-y-3 text-xs text-neutral-600 font-light">
+                        <li><a href="#" class="hover:text-white transition-colors">Sky Labs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Sky SMP</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Last Signal</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Boxar AI</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Links</h4>
-                    <ul class="space-y-2 text-sm text-neutral-500">
-                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Discord</a></li>
-                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Status</a></li>
-                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Apply</a></li>
+                    <h4 class="text-[10px] font-normal text-neutral-400 uppercase tracking-widest mb-4">Network</h4>
+                    <ul class="space-y-3 text-xs text-neutral-600 font-light">
+                        <li><a href="https://discord.gg/N4U7YG5tZ6" class="hover:text-white transition-colors">Discord Sync</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">System Status</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API Documentation</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-span-2 md:col-span-2">
-                    <h4 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Status</h4>
-                    <div class="space-y-2 text-sm text-neutral-500">
-                        <div class="flex justify-between items-center border-b border-white/5 pb-2">
-                            <span>Sky SMP</span>
-                            <span class="text-emerald-400 text-xs">● Online</span>
+                    <h4 class="text-[10px] font-normal text-neutral-400 uppercase tracking-widest mb-4">Live Telemetry</h4>
+                    <div class="space-y-3 text-xs text-neutral-500 font-light">
+                        <div class="flex justify-between items-center border-b border-white/[0.04] pb-2 cursor-default hover:text-white transition-colors">
+                            <span>Main Repository</span>
+                            <span class="text-emerald-400/80 text-[10px] font-mono" id="repo-status">Syncing</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span>Quantum Veil</span>
-                            <span class="text-emerald-400 text-xs">● Operational</span>
+                        <div class="flex justify-between items-center cursor-default hover:text-white transition-colors">
+                            <span>Quantum Core API</span>
+                            <span class="text-emerald-400/80 text-[10px] font-mono">99.9% Uptime</span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 gap-4">
-                <p class="text-xs text-neutral-600">© 2024 Quantum Veil. All rights reserved.</p>
-                <div class="flex gap-6 items-center">
-                   <div class="relative w-2 h-2">
-                       <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75 animate-ping"></span>
-                       <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            <div class="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-white/[0.04] gap-4">
+                <p class="text-[10px] text-neutral-600 font-light">&copy; 2026 Quantum Veil. All codebases secured.</p>
+                <div class="flex gap-4 items-center cursor-default">
+                   <div class="relative w-1.5 h-1.5">
+                       <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-60 animate-ping"></span>
+                       <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
                    </div>
-                   <span class="text-xs text-neutral-400 font-medium">All Systems Operational</span>
+                   <span class="text-[10px] text-neutral-500 font-mono tracking-tight">SYS_DEPLOYED</span>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* --- Toggle Switch Logic --- */
+            const toggleSync = document.getElementById('toggle-sync');
+            const toggleBg = document.getElementById('toggle-bg');
+            const toggleKnob = document.getElementById('toggle-knob');
+            const toggleText = document.getElementById('toggle-text');
+            const constraintBox = document.getElementById('constraint-box');
+            const constraintCheck = document.getElementById('constraint-check');
+            let isSyncActive = true;
+
+            toggleSync.addEventListener('click', () => {
+                isSyncActive = !isSyncActive;
+                if (isSyncActive) {
+                    toggleBg.classList.replace('bg-white/5', 'bg-indigo-500/10');
+                    toggleBg.classList.replace('border-white/10', 'border-indigo-500/20');
+                    toggleKnob.classList.replace('bg-neutral-500', 'bg-indigo-400');
+                    toggleKnob.classList.add('shadow-[0_0_8px_rgba(129,140,248,0.5)]', 'translate-x-[16px]');
+                    toggleText.innerText = "Continuous background linkage";
+                    toggleText.classList.replace('text-neutral-500', 'text-neutral-600');
+                    
+                    constraintBox.classList.replace('bg-white/5', 'bg-indigo-500/10');
+                    constraintBox.classList.replace('border-white/10', 'border-indigo-500/30');
+                    constraintCheck.classList.remove('opacity-0');
+                } else {
+                    toggleBg.classList.replace('bg-indigo-500/10', 'bg-white/5');
+                    toggleBg.classList.replace('border-indigo-500/20', 'border-white/10');
+                    toggleKnob.classList.replace('bg-indigo-400', 'bg-neutral-500');
+                    toggleKnob.classList.remove('shadow-[0_0_8px_rgba(129,140,248,0.5)]', 'translate-x-[16px]');
+                    toggleText.innerText = "Linkage disconnected";
+                    toggleText.classList.replace('text-neutral-600', 'text-neutral-500');
+
+                    constraintBox.classList.replace('bg-indigo-500/10', 'bg-white/5');
+                    constraintBox.classList.replace('border-indigo-500/30', 'border-white/10');
+                    constraintCheck.classList.add('opacity-0');
+                }
+            });
+
+            /* --- Bandwidth Simulation --- */
+            const bwText = document.getElementById('bw-text');
+            const bwBar = document.getElementById('bw-bar');
+            setInterval(() => {
+                const val = Math.floor(Math.random() * (98 - 65 + 1) + 65);
+                bwText.innerText = val + '%';
+                bwBar.style.width = val + '%';
+            }, 2500);
+
+            /* --- Code Tabs Logic --- */
+            const codeTabs = document.querySelectorAll('.code-tab');
+            const codeFilename = document.getElementById('code-filename');
+            const codeContentTS = document.getElementById('code-content-ts');
+            const codeContentAPI = document.getElementById('code-content-api');
+
+            codeTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Reset all tabs
+                    codeTabs.forEach(t => {
+                        t.className = "code-tab text-[10px] text-neutral-600 font-mono border border-white/[0.05] bg-transparent px-1.5 py-0.5 rounded transition-colors hover:text-neutral-400";
+                    });
+                    // Set active tab
+                    tab.className = "code-tab text-[10px] font-mono border px-1.5 py-0.5 rounded transition-colors text-indigo-300 border-indigo-500/30 bg-indigo-500/10";
+                    codeFilename.innerText = tab.getAttribute('data-file');
+
+                    // Toggle content
+                    if(tab.innerText === 'TS') {
+                        codeContentTS.classList.remove('hidden');
+                        codeContentAPI.classList.add('hidden');
+                    } else {
+                        codeContentTS.classList.add('hidden');
+                        codeContentAPI.classList.remove('hidden');
+                    }
+                });
+            });
+
+            /* --- Design Tools Logic --- */
+            const designTools = document.querySelectorAll('.design-tool');
+            designTools.forEach(tool => {
+                tool.addEventListener('click', () => {
+                    designTools.forEach(t => {
+                        t.className = "design-tool w-6 h-6 rounded flex items-center justify-center text-neutral-500 hover:text-white transition-colors cursor-pointer";
+                    });
+                    tool.className = "design-tool w-6 h-6 rounded flex items-center justify-center bg-white/10 text-white cursor-pointer transition-colors";
+                });
+            });
+            
+            /* --- Navigation Active State --- */
+            const sections = document.querySelectorAll('main, section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                // Navbar border opacity logic
+                if (window.scrollY > 20) {
+                    navbar.classList.add('border-white/[0.08]');
+                    navbar.classList.remove('border-white/[0.04]');
+                } else {
+                    navbar.classList.add('border-white/[0.04]');
+                    navbar.classList.remove('border-white/[0.08]');
+                }
+
+                // Active section highlight
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('text-neutral-200');
+                    link.classList.add('text-neutral-500');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.remove('text-neutral-500');
+                        link.classList.add('text-neutral-200');
+                    }
+                });
+            });
+
+            /* --- Terminal Typing Simulation --- */
+            const termTyping = document.getElementById('term-typing');
+            const commands = ["node monitor.js --watch", "cargo clippy --fix", "qv deploy --production"];
+            let cmdIdx = 0;
+            
+            async function typeCommand() {
+                const cmd = commands[cmdIdx];
+                termTyping.innerText = "";
+                // Type characters
+                for (let i = 0; i < cmd.length; i++) {
+                    termTyping.innerText += cmd.charAt(i);
+                    await new Promise(r => setTimeout(r, 60 + Math.random() * 80));
+                }
+                // Wait at end of command
+                await new Promise(r => setTimeout(r, 2000));
+                
+                // Clear and go next
+                termTyping.innerText = "";
+                cmdIdx = (cmdIdx + 1) % commands.length;
+                typeCommand();
+            }
+            setTimeout(typeCommand, 1500);
+
+            /* --- Small Animated Badges --- */
+            setInterval(() => {
+                const repoStatus = document.getElementById('repo-status');
+                repoStatus.innerText = repoStatus.innerText === 'Syncing' ? 'Synced.' : 'Syncing';
+            }, 3000);
+
+            const compileBadge = document.getElementById('compile-badge');
+            const compileText = document.getElementById('compile-text');
+            const compileDot = document.getElementById('compile-dot');
+            
+            setInterval(() => {
+                if(compileText.innerText === 'Compiling') {
+                    compileText.innerText = 'Ready';
+                    compileBadge.classList.replace('bg-yellow-500/[0.05]', 'bg-emerald-500/[0.05]');
+                    compileBadge.classList.replace('border-yellow-500/10', 'border-emerald-500/10');
+                    compileBadge.classList.replace('text-yellow-500/80', 'text-emerald-400');
+                    compileDot.classList.replace('bg-yellow-500/80', 'bg-emerald-400');
+                } else {
+                    compileText.innerText = 'Compiling';
+                    compileBadge.classList.replace('bg-emerald-500/[0.05]', 'bg-yellow-500/[0.05]');
+                    compileBadge.classList.replace('border-emerald-500/10', 'border-yellow-500/10');
+                    compileBadge.classList.replace('text-emerald-400', 'text-yellow-500/80');
+                    compileDot.classList.replace('bg-emerald-400', 'bg-yellow-500/80');
+                }
+            }, 5000);
+        });
+    </script>
 </body>
 </html>
